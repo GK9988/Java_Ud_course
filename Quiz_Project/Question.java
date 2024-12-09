@@ -33,6 +33,14 @@ public class Question {
 
     }
 
+    public void displayQuestion() {
+
+    }
+
+    public boolean checkAnswer() {
+        return false;
+    }
+
     public String getQuestion() {
         return question;
     }

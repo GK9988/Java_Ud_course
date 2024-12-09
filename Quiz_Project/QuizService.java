@@ -63,6 +63,37 @@ public class QuizService {
         studentName = sc.nextLine();
         studentScore = 0;
 
+        int qNo = 0;
+
+        for (Question q : questions) {
+            clearConsole();
+            System.out.println("******** Question - " + ++qNo + " ********");
+            System.out.println("User - " + studentName);
+            System.out.println("Current Score = " + studentScore);
+            System.out.println("\n");
+            q.displayQuestion();
+
+            System.out.println("\nEnter Your Answer: ");
+            String lAns = sc.nextLine();
+
+            boolean lAnsCheck = q.checkAnswer(lAns);
+
+            if (lAnsCheck) {
+                System.out.println("Correct Answer!");
+                studentScore++;
+            } else {
+                System.out.println("Wrong Answer!!!");
+                System.out.println("Correct Answer is: " + q.getAnswer());
+            }
+        }
+
+        clearConsole();
+        System.out.println("************** Quiz Completed **************");
+        System.out.println("\n");
+        System.out.println("Student Name: " + studentName);
+        System.out.println("Final Score = " + studentScore);
+        System.out.println("\tCorrect Answers = " + studentScore);
+        System.out.println("\tWrong Answers = " + (questions.size() - studentScore));
     }
 
     private void adminStuff() {
