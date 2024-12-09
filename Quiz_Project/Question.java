@@ -14,31 +14,40 @@ public class Question {
     private static Scanner sc = new Scanner(System.in);
 
     public Question() {
-        System.out.println("Enter the Question: ");
+
+        options = new ArrayList<>();
+
+        System.out.print("Enter the Question: ");
         question = sc.nextLine();
         System.out.println();
 
-        System.out.println("Enter the number of Options: ");
+        System.out.print("Enter the number of Options: ");
         int lOptions = sc.nextInt();
+        sc.nextLine();
         System.out.println();
 
         for (int i = 0; i < lOptions; i++) {
-            System.out.println("\tOption " + i + 1 + " = ");
+            System.out.print("\tOption " + (i + 1) + " = ");
             options.add(sc.nextLine());
-            System.out.println();
         }
 
-        System.out.println("Enter the answer of the Question: ");
+        System.out.print("Enter the answer of the Question: ");
         answer = sc.nextLine();
 
     }
 
     public void displayQuestion() {
 
+        System.out.println(question);
+
+        for (String opt : options) {
+            System.out.println("\t->" + opt);
+        }
+
     }
 
-    public boolean checkAnswer() {
-        return false;
+    public boolean checkAnswer(String aInAns) {
+        return answer.equals(aInAns);
     }
 
     public String getQuestion() {

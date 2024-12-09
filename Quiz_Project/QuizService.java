@@ -23,7 +23,7 @@ public class QuizService {
     }
 
     private void clearConsole() {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 5; i++) {
             System.out.println();
         }
     }
@@ -35,6 +35,7 @@ public class QuizService {
             System.out.println("Press 1 for Admin, Press 2 for Student");
 
             int user = sc.nextInt();
+            sc.nextLine();
             isAdmin = user == 1 ? true : false;
 
             if (isAdmin) {
@@ -45,8 +46,9 @@ public class QuizService {
                 studentStuff();
             }
 
-            System.out.println("Press 1 to Continue, Press 2 to Exit");
+            System.out.println("Press 1 to Continue, Press 2 to Exit\n");
             int choice = sc.nextInt();
+            sc.nextLine();
             quizStatus = choice == 2 ? false : true;
         }
 
@@ -59,7 +61,7 @@ public class QuizService {
             return;
         }
 
-        System.out.println("Enter your Name: ");
+        System.out.print("Enter your Name: ");
         studentName = sc.nextLine();
         studentScore = 0;
 
@@ -73,7 +75,7 @@ public class QuizService {
             System.out.println("\n");
             q.displayQuestion();
 
-            System.out.println("\nEnter Your Answer: ");
+            System.out.print("\nEnter Your Answer: ");
             String lAns = sc.nextLine();
 
             boolean lAnsCheck = q.checkAnswer(lAns);
@@ -100,6 +102,7 @@ public class QuizService {
         System.out.println("Press 1 to Add Questions, Press 2 to see the list of Questions");
 
         int choice = sc.nextInt();
+        sc.nextLine();
 
         if (choice == 1) {
             clearConsole();
